@@ -1,0 +1,34 @@
+<div style="margin: 0 auto; ">
+<div> Hello {{ name }}! </div>
+<br />
+<div>Greetings from VendorGlobe. <br />
+    The customer with email - {{ cust_email }} has requested details on the below items-
+</div>
+<br />
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sl.No</th><th>Item</th><th>Brand</th><th>Category</th>        
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, datum in data %}
+                <tr><td>{{ loop.index }}.</td><td>{{ datum.Item|e }}</td>
+                <td>{{ datum.Brand|e }}</td><td>{{ datum.Category|e }}</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br />
+{% if msg is not null %}
+    <div>
+        <h3>Personal Message from Customer</h3>
+        <div>{{ msg }}</div>
+    </div>
+    <br />
+{% endif %}
+<div>
+    - Administrator
+</div>
+</div>

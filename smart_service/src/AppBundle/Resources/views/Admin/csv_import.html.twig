@@ -1,0 +1,199 @@
+
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta charset="UTF-8">
+            <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/ionicons/css/ionicons.min.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/iCheck/skins/square/blue.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/select2/select2.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/css/styles.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/css/layout.css?v6') }}">
+                <link rel="stylesheet" href="{{ asset('/my_hotels/web/bundles/sonataadmin/css/tree.css?v6') }}">
+                                    
+                    <script>
+                window.SONATA_CONFIG = {
+                    CONFIRM_EXIT: true,
+                    USE_SELECT2: true,
+                    USE_ICHECK: true,
+                    USE_STICKYFORMS: true                };
+                window.SONATA_TRANSLATIONS = {
+                    CONFIRM_EXIT:  'You\x20have\x20unsaved\x20changes.'
+                };
+
+                // http://getbootstrap.com/getting-started/#support-ie10-width
+                if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                    var msViewportStyle = document.createElement('style');
+                    msViewportStyle.appendChild(document.createTextNode('@-ms-viewport{width:auto!important}'));
+                    document.querySelector('head').appendChild(msViewportStyle);
+                }
+            </script>
+
+            <script src="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/jquery/dist/jquery.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/moment/min/moment.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/bootstrap/dist/js/bootstrap.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/jquery-form/jquery.form.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/jquery/jquery.confirmExit.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonatacore/vendor/select2/select2.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/admin-lte/dist/js/app.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/iCheck/icheck.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/slimScroll/jquery.slimscroll.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/waypoints/lib/jquery.waypoints.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/vendor/waypoints/lib/shortcuts/sticky.min.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/Admin.js?v6') }}"></script>
+            <script src="{{ asset('/my_hotels/web/bundles/sonataadmin/treeview.js?v6') }}"></script>
+                                                    
+        <title>
+                    Admin
+
+                            Dashboard
+                            </title>
+    </head>
+    <body class="sonata-bc skin-black fixed">
+
+    <div class="wrapper">
+
+                    <header class="main-header">
+                                    <noscript>
+                        <div class="noscript-warning">
+                            Javascript is disabled in your web browser. Some features will not work properly.
+                        </div>
+                    </noscript>
+                                                                            <a class="logo" href="/app_dev.php/admin/dashboard"><img src="/bundles/sonataadmin/logo_title.png?v6" alt="My Hotels"><span>My Hotels</span></a>                                                                                                <nav class="navbar navbar-static-top" role="navigation">
+                            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                                <span class="sr-only">Toggle navigation</span>
+                            </a>
+
+                            <div class="navbar-left">
+                                                                    <div class="hidden-xs">
+                                                                            </div>
+                                                            </div>
+
+                                                            <div class="navbar-custom-menu">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                <i class="fa fa-plus-square fa-fw"></i> <i class="fa fa-caret-down"></i>
+                                            </a>
+                                                    
+            
+                                                                            
+    
+    <div class="dropdown-menu multi-column dropdown-add"
+                    >
+                                
+            
+                                                            <div class="container-fluid">
+                            <div class="row">
+                    
+                        </div>
+                    </div>
+                
+                        </div>
+                                        </li>
+                                        <li class="dropdown user-menu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-user">
+                                                    <div style="margin: 10px; padding-left: 60px">
+            {{ app.user }}
+        - <a style="color:blue; font-weight: bolder" href="http://vendorglobe.com/my_hotels/web/logout">Logout</a>
+        </div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                                    </nav>
+                                                </header>
+        
+                                    <aside class="main-sidebar">
+                    <section class="sidebar">
+                                                                                                                
+                                                                                                                                                                                 <p class="text-center small" style="border-top: 1px solid #444444; padding-top: 10px">
+                                                                            
+                                                                    </p>
+                                                                        </section>
+                </aside>
+            
+            <div class="content-wrapper">
+                                    <section class="content-header">
+
+                                                                                                                                                            </section>
+
+                    <section class="content">
+                        
+                                                                                                                
+                            
+                                                            <div class="sonata-ba-content">
+                                        
+        
+                                        
+        
+        
+    
+
+    
+    <div class="row">
+                        
+                                                
+                
+                        <div class="col-md-6">
+                                                <div id="cms-block-56399ae52d9c4" class="cms-block cms-block-element">
+                        
+                    <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">
+                                            <hr>
+                                            {% if error %}
+                                                <div class="bg-danger" style="padding: 10px;"><strong>Error:</strong> {{ error }}</div>
+                                            {% else %}
+                                                <div class="bg-success" style="padding: 10px;">Importing of data is done successfully!</div>
+                                            {% endif %} <br />
+                                            <a href='{{ path('sonata_admin_dashboard') }}'>Return to Dashboard</a>
+                                        </h3>
+                </div>
+                
+            </div>
+            </div>
+
+                                    </div>
+        
+        
+                         <div class="col-md-6">
+                                                
+
+                                    </div>
+            </div>
+
+    
+    
+
+</div>
+                            
+                            
+                            
+                                                                        </section>
+                            </div>
+            </div>
+
+    
+    
+</body>
+</html>

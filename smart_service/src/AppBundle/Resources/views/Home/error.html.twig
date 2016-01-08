@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<title>Error!</title>
+		<meta name="keywords" content="404 iphone web template, Andriod web template, Smartphone web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+		<link href="{{ asset('bundles/main/css/error-style.css') }}" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<!--start-wrap--->
+		<div class="wrap">
+			<!---start-header---->
+				<div class="header">
+					<div class="logo">
+						<h1 style="color:white">Oopss!!</h1>
+					</div>
+				</div>
+				<div class="ad728x90" style="text-align:center">
+				<!-- w3layouts_demo_728x90 -->
+		   </div>
+			<!---End-header---->
+			<!--start-content------>
+			<div class="content">
+                                <img src="{{ asset('bundles/main/images/error-img.png') }}" alt="LOGO" height="130px">
+				<p><span><label>O</label>hh.....</span> You have encountered an error!</p>
+                                <p style="font-weight: bold">Message from VendorGlobe Platform:</p><p>{{ msg }}</p>
+                                <p>Please click the back button in the browser to return back to the previous page or click the below button.</p>
+                                {% if app.request.headers.get('referer') %}
+                                    <a href="{{ app.request.headers.get('referer') }}">Back</a> or <a href="{{ path('home') }}">Home</a>
+                                {% else %}
+                                    <a href="{{ path('home') }}">Home</a>
+                                {% endif %}
+				
+				<div class="copy-right">
+					<p>© All rights Reserved | VendorGlobe</p>
+				</div>
+   			</div>
+			<!--End-Cotent------>
+		</div>
+		<!--End-wrap--->
+	
+
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0" style="display: none;">
+	<defs>
+		<filter id="normal">
+			<fecolormatrix values="1 0 0 0 0     0 1 0 0 0     0 0 1 0 0     0 0 0 1 0"></fecolormatrix>
+		</filter>
+		<filter id="protanopia" color-interpolation-filters="sRGB">
+			<fecolormatrix values="0.152286 1.052583 -0.204868 0 0     0.114503 0.786281 0.099216 0 0     -0.003882 -0.048116 1.051998 0 0     0 0 0 1 0"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="protanomaly" color-interpolation-filters="sRGB">
+			<fecolormatrix values="0.458064 0.679578 -0.137642 0 0     0.092785 0.846313 0.060902 0 0     -0.007494 -0.016807 1.024301 0 0     0 0 0 1 0"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="deuteranopia" color-interpolation-filters="sRGB">
+			<fecolormatrix values="0.367322 0.860646 -0.227968 0 0     0.280085 0.672501 0.047413 0 0     -0.011820 0.042940 0.968881 0 0     0 0 0 1 0"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="deuteranomaly" color-interpolation-filters="sRGB">
+			<fecolormatrix values="0.547494 0.607765 -0.155259 0 0     0.181692 0.781742 0.036566 0 0     -0.010410 0.027275 0.983136 0 0     0 0 0 1 0"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="tritanopia" color-interpolation-filters="sRGB">
+			<fecolormatrix values="1.255528 -0.076749 -0.178779 0 0     -0.078411 0.930809 0.147602 0 0     0.004733 0.691367 0.303900 0 0     0 0 0 1 0"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="tritanomaly" color-interpolation-filters="sRGB">
+			<fecolormatrix values="1.017277 0.027029 -0.044306 0 0     -0.006113 0.958479 0.047634 0 0     0.006379 0.248708 0.744913 0 0     0 0 0 1 0"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="achromatopsia" color-interpolation-filters="sRGB">
+			<fecolormatrix values="0.212656 0.715158 0.072186 0 0     0.212656 0.715158 0.072186 0 0     0.212656 0.715158 0.072186 0 0     0 0 0 1 0"></fecolormatrix>
+			<fecolormatrix type="saturate" values="0" color-interpolation-filters="sRGB"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="achromatomaly" color-interpolation-filters="sRGB">
+			<fecolormatrix type="saturate" values="0.5"></fecolormatrix>
+			<fecomponenttransfer>
+				<fefuncr type="gamma" exponent=".9"></fefuncr>
+				<fefuncg type="gamma" exponent=".9"></fefuncg>
+				<fefuncb type="gamma" exponent=".9"></fefuncb>
+			</fecomponenttransfer>
+		</filter>
+		<filter id="low-contrast" color-interpolation-filters="sRGB">
+			<fecomponenttransfer>
+				<!-- slope = [amount] intercept = (1 - [amount] / 2) -->
+				<fefuncr type="linear" slope=".5" intercept=".25"></fefuncr>
+				<fefuncg type="linear" slope=".5" intercept=".25"></fefuncg>
+				<fefuncb type="linear" slope=".5" intercept=".25"></fefuncb>
+			</fecomponenttransfer>
+		</filter>
+	</defs>
+</svg></body></html>

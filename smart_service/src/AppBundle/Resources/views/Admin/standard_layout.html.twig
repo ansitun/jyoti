@@ -1,0 +1,176 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+
+{% block sonata_header %}
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <style>
+        .col-md-6 {
+         width: 450px !important;
+        }
+        </style>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script>
+            if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+          var msViewportStyle = document.createElement('style')
+          msViewportStyle.appendChild(
+            document.createTextNode(
+              '@-ms-viewport{width:auto!important}'
+            )
+          )
+          document.querySelector('head').appendChild(msViewportStyle)
+         }
+        </script>
+    <![endif]-->
+            <header class="main-header">
+                {% block sonata_header_noscript_warning %}
+                    <noscript>
+                        <div class="noscript-warning">
+                            {{ 'noscript_warning'|trans({}, 'SonataAdminBundle') }}
+                        </div>
+                    </noscript>
+                {% endblock %}
+                {% block logo %}
+                    {% if admin_pool is defined %}
+                        {% spaceless %}
+                            <a class="logo" href="{{ path('sonata_admin_dashboard') }}">
+                                {% if 'single_image' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
+                                    <img src="{{ asset(admin_pool.titlelogo) }}" alt="{{ admin_pool.title }}">
+                                {% endif %}
+                                {% if 'single_text' == admin_pool.getOption('title_mode') or 'both' == admin_pool.getOption('title_mode') %}
+                                    <span>{{ admin_pool.title }}</span>
+                                {% endif %}
+                            </a>
+                        {% endspaceless %}
+                    {% endif %}
+                {% endblock %}
+                {% block sonata_nav %}
+                    {% if admin_pool is defined %}
+                        <nav class="navbar navbar-static-top" role="navigation">
+                            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                                <span class="sr-only">Toggle navigation</span>
+                            </a>
+
+                            <div class="navbar-left">
+                                {% block sonata_breadcrumb %}
+                                    <div class="hidden-xs">
+                                        {% if _breadcrumb is not empty or action is defined %}
+                                            <ol class="nav navbar-top-links breadcrumb">
+                                                {% if _breadcrumb is empty %}
+                                                    {% if action is defined %}
+                                                        {% for menu in admin.breadcrumbs(action) %}
+                                                            {% if not loop.last  %}
+                                                                <li>
+                                                                    {% if menu.uri is not empty %}
+                                                                        <a href="{{ menu.uri }}">{{ menu.label|raw }}</a>
+                                                                    {% else %}
+                                                                        {{ menu.label }}
+                                                                    {% endif %}
+                                                                </li>
+                                                            {% else %}
+                                                                <li class="active"><span>{{ menu.label }}</span></li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% else %}
+                                                    {{ _breadcrumb|raw }}
+                                                {% endif %}
+                                            </ol>
+                                        {% endif %}
+                                    </div>
+                                {% endblock sonata_breadcrumb %}
+                            </div>
+
+                            {% block sonata_top_nav_menu %}
+                                <div class="navbar-custom-menu">
+                                    <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                    <i class="fa fa-plus-square fa-fw"></i> <i class="fa fa-caret-down"></i>
+                                                </a>
+                                                {% include admin_pool.getTemplate('add_block') %}
+                                            </li>
+                                        <li class="dropdown user-menu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-user">
+                                                {% include admin_pool.getTemplate('user_block') %}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            {% endblock %}
+                        </nav>
+                    {% endif %}
+                {% endblock sonata_nav %}
+            </header>
+        {% endblock sonata_header %}
+
+
+
+
+{% block sonata_page_content_header %}
+    {% block sonata_page_content_nav %}
+        {% if _tab_menu is not empty or _actions is not empty or _list_filters_actions is not empty %}
+            <style type="text/css">
+                .sonata-ba-list-field, .sonata-ba-list-field-header-order-asc, .sonata-ba-list-field-header-order-desc, 
+                .sonata-ba-list-field-header, .custom-image {
+                    text-align: center !important;
+                }
+            </style>
+        {#{% if _tab_menu is not empty or _actions is not empty %}#}
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid" style="margin-top: 50px !important">
+                    <h3 class="pull-left" style="margin-top:10px;margin-right: 10px;">{{ admin.getLabel() }} </h3>
+                    {% block tab_menu_navbar_header %}
+                        {% if _navbar_title is not empty %}
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#">{{ _navbar_title|raw }}</a>
+                            </div>
+                        {% endif %}
+                    {% endblock %}
+
+                    <div class="navbar-collapse">
+                        <div class="navbar-left">
+                            {% if _tab_menu is not empty %}
+                                {{ _tab_menu|raw }}
+                            {% endif %}
+                        </div>
+
+                        {% if admin is defined and action is defined and action == 'list' and admin.listModes|length > 1 %}
+                            <div class="nav navbar-right btn-group">
+                                {% for mode, settings in admin.listModes %}
+                                    <a href="{{ admin.generateUrl('list', app.request.query.all|merge({_list_mode: mode})) }}" class="btn btn-default navbar-btn btn-sm{% if admin.getListMode() == mode %} active{% endif %}"><i class="{{ settings.class }}"></i></a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        {% if _actions|replace({ '<li>': '', '</li>': '' })|trim is not empty and app.request.get('_route') != 'admin_main_item_batch'%}
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown sonata-actions">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'link_actions'|trans({}, 'SonataAdminBundle') }} <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        {{ _actions|raw }}
+                                    </ul>
+                                </li>
+                            </ul>
+                        {% endif %}
+
+                        {% if _list_filters_actions is not empty %}
+                            {{ _list_filters_actions|raw }}
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        {% endif %}
+    {% endblock sonata_page_content_nav %}
+{% endblock sonata_page_content_header %}
+
+{% block side_bar_after_nav %}
+    <div style="margin: 10px;">
+    <kbd><p>Hello {{app.user.username}}!</p>
+    <p>Welcome to Smart Service. Feel free to browse through the Admin Portal.
+    <p>The site is in <mark>BETA</mark> stage.</p></kbd>
+    </div>
+{% endblock %}

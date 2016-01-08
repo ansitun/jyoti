@@ -1,0 +1,51 @@
+<?php
+// src/AppBundle/Entity/Customer.php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Customer")
+ */
+class Customer
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="smallint")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\Column(type="string", length=64, nullable=false)
+     */
+    protected $cid;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=false)
+     */
+    protected $fname;    
+    
+    /**
+     * @ORM\Column(type="string", length=100, nullable=false)
+     */
+    protected $lname;    
+    
+    /**
+     * @ORM\Column(type="string", length=256, nullable=false)
+     */
+    protected $passwd;    
+    
+    /**
+     * @ORM\Column(type="string", length=256, nullable=false)
+     */
+    protected $email;    
+    
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    protected $hasAuth;    
+    
+}

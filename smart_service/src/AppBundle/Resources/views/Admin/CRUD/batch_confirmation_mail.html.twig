@@ -1,0 +1,40 @@
+{% extends "SonataAdminBundle:CRUD:batch_confirmation.html.twig" %}
+{% block javascripts %}
+    <script src="{{ asset('/bundles/sonatacore/vendor/jquery/dist/jquery.min.js?v6') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+{% endblock %}
+{% block content %}
+    <div class="sonata-ba-delete">
+        {#{% trans with {'%action%': action_label} from 'SonataAdminBundle' %}title_batch_confirmation{% endtrans %}#}
+        <div class="well well-small form-actions">
+            <form action="{{ admin.generateUrl('batch', {'filter': admin.filterParameters}) }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="comment">Personal Message to the Vendors</label>
+                    <textarea name="personal-msg" class="form-control" rows="5" ></textarea>
+                    <b>Add Attachemnt</b>: (This attachment will be sent to the vendors along with the mail. The maximum allowed size of the file is 2MB.)
+                    <input type="file" id="attach-file" name="custom-file" />
+                </div>
+                
+                
+                <input type="hidden" name="confirmation" value="ok">
+                <input type="hidden" name="data" value="{{ data|json_encode }}">
+                <input type="hidden" name="_sonata_csrf_token" value="{{ csrf_token }}">
+
+                <div style="display: none">
+                    {{ form_rest(form) }}
+                </div>
+
+                <button id = "btn-new" type="submit" class="btn btn-danger">{{ 'btn_execute_batch_action'|trans({}, 'SonataAdminBundle') }}</button>
+
+                {% if admin.hasRoute('list') and admin.isGranted('LIST') %}
+                    {{ 'delete_or'|trans({}, 'SonataAdminBundle') }}
+
+                    <a class="btn btn-success" href="{{ admin.generateUrl('list') }}">
+                        <i class="glyphicon glyphicon-th-list"></i> {{ 'link_action_list'|trans({}, 'SonataAdminBundle') }}
+                    </a>
+                {% endif %}
+            </form>
+        </div>
+    </div>    
+{% endblock %}

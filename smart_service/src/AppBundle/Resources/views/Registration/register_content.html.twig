@@ -1,0 +1,9 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {{ form_widget(form) }}
+    <div  class="fos_user_registration_form_city"><i>You can select multiple areas by holding the "Ctrl" key</i></div>
+    <div style = "display: table; margin: 0 auto;">
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+</form>

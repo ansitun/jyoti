@@ -1,0 +1,7 @@
+{% block field %}
+    <td class="custom-image">
+        {% if object|isBrandOrCategory %}
+            <img src="{{ object.getImageUrl() }}" height="50px" width="50px" />
+        {% endif %}
+    </td>
+{% endblock %}

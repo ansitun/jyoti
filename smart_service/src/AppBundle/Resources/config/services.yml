@@ -1,0 +1,52 @@
+parameters:
+
+services:
+    sonata.admin.service_customer_map:
+        class: AppBundle\Admin\SvrCustMapAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Service Customer Map" }
+        arguments:
+            - ~
+            - AppBundle\Entity\SvrCustMap
+            - ~
+            
+    sonata.admin.customer:
+        class: AppBundle\Admin\CustomerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Customer" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Customer
+            - ~
+            
+    sonata.admin.manager:
+        class: AppBundle\Admin\ManagerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Manager" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Manager
+            - ~
+            
+    sonata.admin.provider:
+        class: AppBundle\Admin\ProviderAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Provider" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Provider
+            - ~
+            
+    sonata.admin.services:
+        class: AppBundle\Admin\ServicesAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Services" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Services
+            - ~
+            
+
+    admin_failure_handler:
+        class: AppBundle\Service\AuthenticationFailureHandlerService
+        arguments: [ '@service_container', '@router' ]

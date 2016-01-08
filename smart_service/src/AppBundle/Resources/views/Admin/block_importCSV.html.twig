@@ -1,0 +1,27 @@
+{% extends 'SonataBlockBundle:Block:block_base.html.twig' %}
+
+{% block block %}
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Import items in CSV/XLS</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <form action="{{ path('shortyImportCSV') }}" method="post" enctype="multipart/form-data" >
+                        <select size="1" name="fileType" style="margin-bottom: 10px;">
+                        {% for oneCSV in allTypes %}
+                            <option value="{{ oneCSV.id }}">{{ oneCSV.value }}</option>
+                        {% endfor %}
+                        </select>
+                    <input type="file" name="csvFile" />
+                    <input type="submit" value="Upload" />
+                 </form>
+             </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
