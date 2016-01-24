@@ -50,7 +50,6 @@ class ManagerAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
                 ->addIdentifier('aid')
                 ->addIdentifier('fname')
                 ->add('lname')

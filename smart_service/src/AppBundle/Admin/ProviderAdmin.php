@@ -50,7 +50,6 @@ class ProviderAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
                 ->addIdentifier('pid')
                 ->addIdentifier('fname')
                 ->add('lname')

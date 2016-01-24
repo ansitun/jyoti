@@ -50,7 +50,6 @@ class CustomerAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
                 ->addIdentifier('cid')
                 ->addIdentifier('fname')
                 ->add('lname')

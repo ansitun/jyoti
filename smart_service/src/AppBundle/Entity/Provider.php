@@ -10,15 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="Provider")
  */
 class Provider
-{
+{   
     /**
      * @ORM\Id
-     * @ORM\Column(type="smallint")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-    
-    /**
      * @ORM\Column(type="string", length=64, nullable=false)
      */
     protected $pid;

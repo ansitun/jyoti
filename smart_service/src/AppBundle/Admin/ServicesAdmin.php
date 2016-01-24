@@ -48,8 +48,7 @@ class ServicesAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
-                 ->addIdentifier('sid')
+                ->addIdentifier('sid')
                 ->addIdentifier('sname')
                 ->add('smgr')
                 ->add('sloc')

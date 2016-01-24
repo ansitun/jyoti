@@ -46,10 +46,9 @@ class SvrCustMapAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('id')
             ->addIdentifier('cid')
-            ->addIdentifier('sid')
-            ->add('mapid')
+            ->addIdentifier('mapid')
+            ->add('sid')
             ->add('hasSubs')
         ;
     }

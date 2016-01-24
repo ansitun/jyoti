@@ -12,13 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
 class SvrCustMap
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="smallint")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-        
-    /**
      * @ORM\Column(type="string", length=64, nullable=false)
      */
     protected $cid;
@@ -29,6 +22,7 @@ class SvrCustMap
     protected $sid;
        
     /**
+     * @ORM\Id
      * @ORM\Column(type="integer", nullable=false)
      */
     protected $mapid;

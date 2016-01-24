@@ -13,12 +13,6 @@ class Customer
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="smallint")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-    
-    /**
      * @ORM\Column(type="string", length=64, nullable=false)
      */
     protected $cid;
