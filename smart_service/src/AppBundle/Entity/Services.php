@@ -13,12 +13,6 @@ class Services
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="smallint")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-    
-    /**
      * @ORM\Column(type="integer", nullable=false)
      */
     protected $sid;
