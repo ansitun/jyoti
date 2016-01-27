@@ -12,18 +12,21 @@ use Doctrine\ORM\Mapping as ORM;
 class SvrCustMap
 {
     /**
-     * @ORM\Column(type="string", length=64, nullable=false)
+     * @ORM\ManyToOne(targetEntity="Customer")
+     * @ORM\JoinColumn(name="cid", referencedColumnName="cid", nullable=false)
      */
     protected $cid;
     
     /**
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Services")
+     * @ORM\JoinColumn(name="sid", referencedColumnName="sid", nullable=false)
      */
     protected $sid;
        
     /**
      * @ORM\Id
      * @ORM\Column(type="integer", nullable=false)
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $mapid;
 

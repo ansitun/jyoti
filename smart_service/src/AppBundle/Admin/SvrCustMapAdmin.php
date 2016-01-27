@@ -24,9 +24,8 @@ class SvrCustMapAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-                 ->add('cid')
-                ->add('sid')
-                ->add('mapid')
+                 ->add('cid', 'entity', array('class' => 'AppBundle\Entity\Customer', 'property' => 'cid'))
+                ->add('sid', 'entity', array('class' => 'AppBundle\Entity\Services', 'property' => 'sid'))
                 ->add('hasSubs')
         ;
     }
@@ -35,9 +34,8 @@ class SvrCustMapAdmin extends BaseAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-                ->add('cid')
-                ->add('sid')
-                ->add('mapid')
+                ->add('cid.cid')
+                ->add('sid.sid')
                 ->add('hasSubs')
             ;
     }
@@ -46,9 +44,9 @@ class SvrCustMapAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('cid')
             ->addIdentifier('mapid')
-            ->add('sid')
+            ->addIdentifier('cid.cid')
+            ->add('sid.sid')
             ->add('hasSubs')
         ;
     }
